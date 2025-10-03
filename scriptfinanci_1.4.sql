@@ -26,18 +26,18 @@ CREATE TYPE audit_trail AS
 
 CREATE TABLE IF NOT EXISTS tab_pmtros_generales
 (
-    id_empresa     VARCHAR         NOT NULL              CHECK  (LENGTH (id_empresa) = 10),             
-    nom_empresa    VARCHAR         NOT NULL              CHECK  (LENGTH(nom_empresa) >=5 AND LENGTH(nom_empresa) <=60),
-    dir_empresa    VARCHAR         NOT NULL,             
-    tel_empresa    DECIMAL (10,0)  NOT NULL              CHECK  (tel_empresa >=0),
-    email_empresa  VARCHAR         NOT NULL,  
-    val_poriva     DECIMAL (2,0)   NOT NULL DEFAULT 0    CHECK  (val_poriva   >=0    AND val_poriva    < 100),
-    val_porrete    DECIMAL (2,0)   NOT NULL DEFAULT 0    CHECK  (val_porrete  >=0    AND val_porrete   < 100),
-    val_reteica    DECIMAL (2,0)   NOT NULL DEFAULT 0    CHECK  (val_reteica  >=0    AND val_reteica   < 100),
-    val_porutil    DECIMAL (3,0)   NOT NULL DEFAULT 0    CHECK  (val_porutil  >=0    AND val_porutil   < 1000),
-    val_longitud   DECIMAL (12,10) NOT NULL              CHECK  (val_longitud >=-4   AND val_longitud  <=80),
-    val_latitud    DECIMAL (12,10) NOT NULL              CHECK  (val_latitud  >=-80  AND val_latitud   <=-50),
-    ind_autorrete  BOOLEAN         NOT NULL,             --TRUE = autorrete / FALSE = no autorrete
+    id_empresa     VARCHAR          NOT NULL                CHECK  (LENGTH (id_empresa) = 10),             
+    nom_empresa    VARCHAR          NOT NULL                CHECK  (LENGTH(nom_empresa) >=5 AND LENGTH(nom_empresa) <=60),
+    dir_empresa    VARCHAR          NOT NULL,             
+    tel_empresa    DECIMAL  (10,0)  NOT NULL                CHECK  (tel_empresa >=0),
+    email_empresa  VARCHAR          NOT NULL,  
+    val_poriva     DECIMAL  (2,0)   NOT NULL DEFAULT 0      CHECK  (val_poriva   >=0    AND val_poriva    < 100),
+    val_porrete    DECIMAL  (2,0)   NOT NULL DEFAULT 0      CHECK  (val_porrete  >=0    AND val_porrete   < 100),
+    val_reteica    DECIMAL  (2,0)   NOT NULL DEFAULT 0      CHECK  (val_reteica  >=0    AND val_reteica   < 100),
+    val_porutil    DECIMAL  (3,0)   NOT NULL DEFAULT 0      CHECK  (val_porutil  >=0    AND val_porutil   < 1000),
+    val_lat        DECIMAL	(9,6)               NOT NULL    CHECK (val_lat  BETWEEN -4 AND 12),
+    val_long       DECIMAL	(9,6)               NOT NULL    CHECK (val_long BETWEEN -80   AND -67),
+    ind_autorrete  BOOLEAN          NOT NULL,             --TRUE = autorrete / FALSE = no autorrete
     PRIMARY KEY (id_empresa)
 
 );
