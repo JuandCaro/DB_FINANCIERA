@@ -88,8 +88,8 @@ CREATE TABLE IF NOT EXISTS tab_ciudades
 	nom_ciudad            VARCHAR                       NOT NULL    CHECK   (LENGTH (nom_ciudad) <=30),
     ind_capital           BOOLEAN                       NOT NULL,    --TRUE = es capital / FALSE = no es capital
     cod_postal            VARCHAR                       NOT NULL    CHECK   (LENGTH (cod_postal) =6),
-    val_longitud          DECIMAL   (12,10)             NOT NULL    CHECK   (val_longitud >=-4              AND val_longitud  <=80),
-    val_latitud           DECIMAL   (12,10)             NOT NULL    CHECK   (val_latitud  >=-80             AND val_latitud   <=-50),
+    val_lat         	  DECIMAL	(9,6)               NOT NULL    CHECK (val_lat  BETWEEN -4 AND 12),
+    val_long              DECIMAL	(9,6)               NOT NULL    CHECK (val_long BETWEEN -80   AND -67),
     datos_audit           AUDIT_TRAIL,
     PRIMARY KEY (id_ciudad),
 	FOREIGN KEY (id_depto) REFERENCES tab_deptos(id_depto)
@@ -107,8 +107,8 @@ CREATE TABLE IF NOT EXISTS tab_inversores
     email_inversor        VARCHAR                       NOT NULL    CHECK   (LENGTH (email_inversor) <=120),   
     por_participacion     DECIMAL   (3,1)               NOT NULL    CHECK   (por_participacion BETWEEN 0 AND 100),   
     dir_inversor          VARCHAR                       NOT NULL    CHECK   (LENGTH (dir_inversor) <255),
-    val_long        	  DECIMAL	(9,6)               NOT NULL    CHECK (val_long BETWEEN -80   AND -67),
     val_lat         	  DECIMAL	(9,6)               NOT NULL    CHECK (val_lat  BETWEEN -4 AND 12),       
+    val_long        	  DECIMAL	(9,6)               NOT NULL    CHECK (val_long BETWEEN -80   AND -67),
     datos_audit           AUDIT_TRAIL,
     PRIMARY KEY (id_inversor),
 	FOREIGN KEY (id_ciudad) REFERENCES tab_ciudades(id_ciudad)
@@ -189,9 +189,9 @@ CREATE TABLE IF NOT EXISTS tab_terceros
     nom_tercero	            VARCHAR                        NOT NULL       CHECK (LENGTH (nom_tercero) >=30  AND LENGTH(nom_tercero) <=60),
     tel_tercero	            DECIMAL(10,0)                  NOT NULL       CHECK (tel_tercero >=0 ),
     mail_tercero	        VARCHAR                        NOT NULL       CHECK (LENGTH(mail_tercero)<=100),
-    direc_tercero	        VARCHAR                        NOT NULL       CHECK (LENGTH(direc_tercero) <=4  AND LENGTH(direc_tercero) >=80),
-    long_tercero        	DECIMAL(9,6)                   NOT NULL       CHECK (long_tercero BETWEEN -80   AND -67),
-    lat_tercero         	DECIMAL(9,6)                   NOT NULL       CHECK (lat_tercero  BETWEEN -4    AND 12), 
+    direc_tercero	        VARCHAR                        NOT NULL       CHECK (LENGTH(direc_tercero) >=4  AND LENGTH(direc_tercero) <=80),
+    val_lat         	    DECIMAL	(9,6)                  NOT NULL       CHECK (val_lat  BETWEEN -4 AND 12),       
+    val_long        	    DECIMAL	(9,6)                  NOT NULL       CHECK (val_long BETWEEN -80   AND -67),
     datos_audit           AUDIT_TRAIL,
     PRIMARY KEY (id_tercero)
 );
@@ -208,5 +208,5 @@ CREATE TABLE IF NOT EXISTS tab_val_ind
     datos_audit           AUDIT_TRAIL,
     PRIMARY KEY (id_val_ind),
     FOREIGN KEY (id_pmtro_financiero)     REFERENCES tab_pmtros_financieros(id_pmtro_financiero),
-    FOREIGN KEY (id_ind)                 REFERENCES tab_indicadores(id_ind)
+    FOREIGN KEY (id_ind)                  REFERENCES tab_indicadores(id_ind)
 );
