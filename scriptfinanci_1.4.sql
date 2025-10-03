@@ -35,9 +35,9 @@ CREATE TABLE IF NOT EXISTS tab_pmtros_generales
     val_porrete    DECIMAL  (2,0)   NOT NULL DEFAULT 0      CHECK  (val_porrete  >=0    AND val_porrete   < 100),
     val_reteica    DECIMAL  (2,0)   NOT NULL DEFAULT 0      CHECK  (val_reteica  >=0    AND val_reteica   < 100),
     val_porutil    DECIMAL  (3,0)   NOT NULL DEFAULT 0      CHECK  (val_porutil  >=0    AND val_porutil   < 1000),
-    val_lat        DECIMAL	(9,6)               NOT NULL    CHECK (val_lat  BETWEEN -4 AND 12),
-    val_long       DECIMAL	(9,6)               NOT NULL    CHECK (val_long BETWEEN -80   AND -67),
-    ind_autorrete  BOOLEAN          NOT NULL,             --TRUE = autorrete / FALSE = no autorrete
+    val_lat        DECIMAL	(9,6)   NOT NULL    			CHECK (val_lat  BETWEEN -4 AND 12),
+    val_long       DECIMAL	(9,6)   NOT NULL    			CHECK (val_long BETWEEN -80   AND -67),
+    ind_autorrete  BOOLEAN          NOT NULL,             	--TRUE = autorrete / FALSE = no autorrete
     PRIMARY KEY (id_empresa)
 
 );
