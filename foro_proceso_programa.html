@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Foro - Proceso del Programa</title>
+<style>
+:root{
+--blue-1:#1b2e5a;
+--blue-2:#368db6;
+--blue-3:#60a5fa;
+--card:#e6f0ff;
+--glass: rgba(255,255,255,0.06);
+font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+html,body{height:100%;margin:0}
+body{
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(180deg,var(--blue-1) 0%, #07204a 50%, #021025 100%);
+color:var(--card);
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+padding:2rem;
+}
+.card{
+max-width:900px;
+width:100%;
+background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+border:1px solid rgba(255,255,255,0.06);
+box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+border-radius:16px;
+padding:48px 40px;
+text-align:center;
+}
+h1{
+margin:0 0 0.5rem 0;
+font-size:clamp(1.6rem, 3.5vw, 2.4rem);
+color:var(--blue-2);
+letter-spacing:0.2px;
+}
+p.lead{
+margin:0 0 1.25rem 0;
+font-size:clamp(1rem, 2.2vw, 1.125rem);
+color:var(--blue-3);
+opacity:0.95;
+}
+.badge{
+display:inline-block;
+margin-top:1rem;
+padding:8px 14px;
+background:rgba(14,165,233,0.12);
+color:var(--blue-2);
+border-radius:999px;
+font-weight:600;
+font-size:0.9rem;
+border:1px solid rgba(14,165,233,0.18);
+}
+footer{
+margin-top:18px;
+font-size:0.85rem;
+color:rgba(230,240,255,0.7);
+}
+@media (max-width:520px){
+.card{padding:28px 20px}
+}
+</style>
+</head>
+<body>
+<main class="card" role="main">
+<h1>En este Foro Guardaremos el preoceso de nuestro programa</h1>
+<p class="lead">Repositorio pensado para documentar pasos, notas y evolución del desarrollo. Úsalo como cuaderno de trabajo y log de cambios.</p>
+<div class="badge">GitHub Ready</div>
+<footer>Tip: edita este archivo para añadir más instrucciones o enlazar con issues y pull requests.</footer>
+</main>
+</body>
+</html>
